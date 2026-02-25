@@ -1,49 +1,62 @@
 import { useState } from "react";
 
 function App() {
-  const [bookList, setBookList] = useState([]);
+  const [bookList, setBookList] = useState<string[]>([]);
   const [input, setInput] = useState("");
 
-  function handleChange(newInput) {
+  function handleChange(newInput: string) {
     setInput(newInput);
   }
-  function handleAddToFront() {
-    setBookList(
-        ...bookList,input
-    )
-}
-    function handleAddToBack() {
-        setBookList(
-            input,
-            ...bookList
-        )
+  function handleAddToBack(e: React.MouseEvent) {
+    e.preventDefault();
+    if (input.trim().length === 0) {
+      return;
     }
+    setBookList([...bookList, input]);
+    setInput("");
+  }
+  function handleAddToFront(e: React.MouseEvent) {
+    e.preventDefault();
+    if (input.trim().length === 0) {
+      return;
+    }
+    setBookList([input, ...bookList]);
+    setInput("");
+  }
 
-  
   return (
-    <>
-      <form >
+    <div className="p-5">
+      <h1 className="font-bold mb-5 text-5xl">Reading queue</h1>
+      <form className="flex flex-wrap gap-2">
         <input
           placeholder="Enter book name"
           value={input}
           name="book"
-          onChange={(e)=>handleChange(e.target.value)}
+          onChange={(e) => handleChange(e.target.value)}
+          className="input input-neutral m"
         ></input>
-        <button onClick={handleAddToFront}>
+        <div className="flex gap-2 flex-row">
+          <button onClick={handleAddToFront} className="btn btn-primary ">
             Add to front
-        </button>
-        <button onClick={handleAddToBack}>
+          </button>
+          <button onClick={handleAddToBack} className="btn btn-primary ">
             Add to Back
-        </button>
+          </button>
+        </div>
       </form>
-      <ol>
-        {bookList.forEach((book)=>{
-            return (
-                <li>book</li>
-            )
+      <ol
+      className="list">
+        {bookList.map((book, index) => {
+          return (
+            <li 
+            className="list-row"
+            key={index}>
+              {index + 1}. {book}
+            </li>
+          );
         })}
       </ol>
-    </>
+    </div>
   );
 }
 
