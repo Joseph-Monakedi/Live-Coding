@@ -1,27 +1,30 @@
 import { useState } from "react";
 
 function App() {
-  const [bookList, setBookList] = useState([]);
+  const [bookList, setBookList] = useState<string[]>([]);
   const [input, setInput] = useState("");
 
-  function handleChange(newInput) {
+  function handleChange(newInput:string) {
     setInput(newInput);
   }
-  function handleAddToFront() {
-    setBookList(
+  function handleAddToFront(e:React.MouseEvent) {
+    e.preventDefault();
+    setBookList([
         ...bookList,input
-    )
+    ]);
 }
-    function handleAddToBack() {
-        setBookList(
+    function handleAddToBack(e:React.MouseEvent) {
+         e.preventDefault();
+        setBookList([
             input,
             ...bookList
-        )
+        ]);
     }
 
   
   return (
     <>
+    <h1>Reading queue</h1>
       <form >
         <input
           placeholder="Enter book name"
@@ -37,9 +40,9 @@ function App() {
         </button>
       </form>
       <ol>
-        {bookList.forEach((book)=>{
+        {bookList.map((book, index)=>{
             return (
-                <li>book</li>
+                <li>{index+1}. {book}</li>
             )
         })}
       </ol>
