@@ -13,6 +13,7 @@ function App() {
       return;
     }
     setBookList([...bookList, input]);
+    setInput("");
   }
   function handleAddToFront(e: React.MouseEvent) {
     e.preventDefault();
@@ -20,6 +21,7 @@ function App() {
       return;
     }
     setBookList([input, ...bookList]);
+    setInput("");
   }
 
   return (
@@ -47,7 +49,8 @@ function App() {
         {bookList.map((book, index) => {
           return (
             <li 
-            className="list-row">
+            className="list-row"
+            key={index}>
               {index + 1}. {book}
             </li>
           );
