@@ -16,7 +16,7 @@ function App() {
           to="/colorPalatteBuilder"
           className={({ isActive }) => (isActive ? "tab tab-active" : "tab")}
         >
-          Color Pallate Builder
+          Color Palatte Builder
         </NavLink>
       </nav>
       <Outlet />
