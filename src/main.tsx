@@ -6,6 +6,7 @@ import App from "./App.tsx";
 import ReadingQueue from "./Pages/ReadingQueue.tsx";
 import ColorPalateBuilder from "./Pages/ColorPalatebuilder.tsx";
 import IdeaBoard from "./Pages/IdeaBoard.tsx";
+import GuestList from "./Pages/GuestList.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<ReadingQueue />} />
           <Route path="/ColorPalatteBuilder" element={<ColorPalateBuilder />} />
           <Route path="/IdeaBoard" element={<IdeaBoard />} />
+          <Route path="/GuestList" element={<GuestList />} />
         </Route>
       </Routes>
     </BrowserRouter>

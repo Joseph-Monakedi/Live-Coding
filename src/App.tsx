@@ -25,6 +25,13 @@ function App() {
         >
           IdeaBoard
         </NavLink>
+        <NavLink
+          role="tab"
+          to="/GuestList"
+          className={({ isActive }) => (isActive ? "tab tab-active" : "tab")}
+        >
+          GuestList
+        </NavLink>
       </nav>
       <Outlet />
     </>
