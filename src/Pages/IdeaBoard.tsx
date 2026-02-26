@@ -8,7 +8,7 @@ function IdeaBoard() {
     setInput(color);
   }
 
-  function handleAddColor(e: React.MouseEvent) {
+  function handleAddIdea(e: React.MouseEvent) {
     e.preventDefault();
     SetIdeas([...ideas, input]);
     setInput("");
@@ -26,7 +26,7 @@ function IdeaBoard() {
         ></textarea>
         <div className="flex gap-2 flex-row">
           <button
-            onClick={(e) => handleAddColor(e)}
+            onClick={(e) => handleAddIdea(e)}
             className="btn btn-primary "
           >
             Add idea
