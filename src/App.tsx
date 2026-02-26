@@ -11,12 +11,19 @@ function App() {
         >
           ReadingQueue
         </NavLink>
-<NavLink
+        <NavLink
           role="tab"
           to="/colorPalatteBuilder"
           className={({ isActive }) => (isActive ? "tab tab-active" : "tab")}
         >
           Color Palatte Builder
+        </NavLink>
+        <NavLink
+          role="tab"
+          to="/IdeaBoard"
+          className={({ isActive }) => (isActive ? "tab tab-active" : "tab")}
+        >
+          IdeaBoard
         </NavLink>
       </nav>
       <Outlet />
